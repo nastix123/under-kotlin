@@ -42,7 +42,7 @@ fun transformersFunction() {
 //    }.first()
 //
     // мы получаем следующее значение до тех пор, пока в first мы не найдем то, что подходит нам под условие
-    //является более эффективным алгоритмом
+    //является более эффективным алгоритмом с sequence
 
     //в этом примере скачаются все страницы
     val catPage = listOf(
@@ -58,12 +58,15 @@ fun transformersFunction() {
         "asdfasdf",
         "awsdfsadfas"
     ).map { fetchPage() }
-    .first { isCat(it) }
+    .first { name ->
+        isCat(name)
+    }
 }
-
+//для примера
 fun fetchPage() {
 
 }
+
 //для примера
 fun isCat(isCat: Unit): Boolean {
     return true
